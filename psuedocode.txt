@@ -1,0 +1,42 @@
+Initialize shared resources 
+create a latch set to 1 (used to signal when counting up is complete)
+create a thread safe counter initialized to 0
+create a thread safe list called ouput to store messages
+
+function formatCountingUp(i) 
+return string "Counting up: " + i
+
+function formatCOuntingDown(i)
+Return string: "COunting down: " + i
+
+Class Countup (implements runnable)
+method: run()
+loop from 1 to 20
+    sleep for 100ms simulate work
+    Set shared counter to current implements
+    Add formatCountingUp(i) to output
+    Pring: "Countup undated counter:  i"
+After loop ends signal latch (countdow)
+if interrupted print error message and exit
+
+Class CountDown (implement Runnable)
+    Method:run()
+    Wait until latch is signaled(i.e countup is done)
+    get the current value of counter (should be 20) 
+    print"countdown starts. counter value start"
+    Loop from start down 0:
+    sleep for 100ms (simulate work)
+    add formatCountingDown (i) to output
+    Print "countdown updated coutner: i"
+    Update counter with current if
+    if interupted, print error message and exit
+
+Main method 
+create two threads
+t1 runs countup
+t2 runs countdown
+start both threads 
+wait for both threds to finish (join)
+copy ouput list into a read only version (Safeoutput)\
+print final ouput
+for each line in safeoutput, print line
